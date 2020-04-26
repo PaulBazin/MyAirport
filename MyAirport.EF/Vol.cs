@@ -68,5 +68,13 @@ namespace MyAirport.EF
             // Bagages = null; // la liste est null par défaut, afin de mieux différencier les différents états d'un GET api/Vols/:id?(none/true/false)
             // mais le '?' de la méthode IEnumerable<Bagage>? Bagages initialise déjà à null par défaut
         }
+        
+        /// <summary>
+        /// Constructeur vide pour Razor
+        /// </summary>
+        public Vol()
+        {
+
+        }
     }
 }
