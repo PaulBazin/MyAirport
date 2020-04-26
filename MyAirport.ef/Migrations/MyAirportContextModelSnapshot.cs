@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PBZN.MyAirport.ef;
+using PBZN_SSU.MyAirport.EF;
 
-namespace PBZN.MyAirport.ef.Migrations
+namespace PBZN_SSU.MyAirport.EF.Migrations
 {
     [DbContext(typeof(MyAirportContext))]
     partial class MyAirportContextModelSnapshot : ModelSnapshot
@@ -15,53 +15,11 @@ namespace PBZN.MyAirport.ef.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.2")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("PBZN.MyAirport.ef.Bagage", b =>
-                {
-                    b.Property<int>("BagageID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Classe")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CodeIata")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreation")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Destination")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Escale")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Prioritaire")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Ssur")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sta")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<int>("VolID")
-                        .HasColumnType("int");
-
-                    b.HasKey("BagageID");
-
-                    b.HasIndex("VolID");
-
-                    b.ToTable("Bagages");
-                });
-
-            modelBuilder.Entity("PBZN.MyAirport.ef.Vol", b =>
+            modelBuilder.Entity("MyAirport.EF.Vol", b =>
                 {
                     b.Property<int>("VolId")
                         .ValueGeneratedOnAdd()
@@ -83,7 +41,7 @@ namespace PBZN.MyAirport.ef.Migrations
                     b.Property<string>("Lig")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Pax")
+                    b.Property<int?>("Pax")
                         .HasColumnType("int");
 
                     b.Property<string>("Pkg")
@@ -94,13 +52,52 @@ namespace PBZN.MyAirport.ef.Migrations
                     b.ToTable("Vols");
                 });
 
-            modelBuilder.Entity("PBZN.MyAirport.ef.Bagage", b =>
+            modelBuilder.Entity("PBZN_SSU.MyAirport.EF.Bagage", b =>
                 {
-                    b.HasOne("PBZN.MyAirport.ef.Vol", "Vol")
-                        .WithMany()
-                        .HasForeignKey("VolID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("BagageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Classe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CodeIata")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Destination")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Escale")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Prioritaire")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Ssur")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VolId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BagageId");
+
+                    b.HasIndex("VolId");
+
+                    b.ToTable("Bagages");
+                });
+
+            modelBuilder.Entity("PBZN_SSU.MyAirport.EF.Bagage", b =>
+                {
+                    b.HasOne("MyAirport.EF.Vol", "Vol")
+                        .WithMany("Bagages")
+                        .HasForeignKey("VolId");
                 });
 #pragma warning restore 612, 618
         }

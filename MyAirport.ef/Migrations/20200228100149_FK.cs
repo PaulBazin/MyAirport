@@ -1,10 +1,16 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PBZN.MyAirport.ef.Migrations
+namespace PBZN_SSU.MyAirport.EF.Migrations
 {
+    /// <summary>
+    /// Migration
+    /// </summary>
     public partial class FK : Migration
     {
+        /// <summary>
+        /// Upgrade les objets dans leur nouvelle version
+        /// </summary>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
@@ -48,7 +54,9 @@ namespace PBZN.MyAirport.ef.Migrations
                 nullable: false,
                 defaultValue: 0);
         }
-
+        /// <summary>
+        /// Restaure les objets dans leur version précédente
+        /// </summary>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(

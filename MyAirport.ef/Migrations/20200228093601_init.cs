@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PBZN.MyAirport.ef.Migrations
+namespace PBZN_SSU.MyAirport.EF.Migrations
 {
     public partial class init : Migration
     {

@@ -5,14 +5,18 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PBZN.MyAirport.ef;
+using PBZN_SSU.MyAirport.EF;
 
-namespace PBZN.MyAirport.ef.Migrations
+namespace PBZN_SSU.MyAirport.EF.Migrations
 {
     [DbContext(typeof(MyAirportContext))]
     [Migration("20200228100149_FK")]
     partial class FK
     {
+        /// <summary>
+        /// Modèle cible
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
@@ -21,7 +25,7 @@ namespace PBZN.MyAirport.ef.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("PBZN.MyAirport.ef.Bagage", b =>
+            modelBuilder.Entity("PBZN_SSU.MyAirport.EF.Bagage", b =>
                 {
                     b.Property<int>("BagageID")
                         .ValueGeneratedOnAdd()
@@ -61,7 +65,7 @@ namespace PBZN.MyAirport.ef.Migrations
                     b.ToTable("Bagages");
                 });
 
-            modelBuilder.Entity("PBZN.MyAirport.ef.Vol", b =>
+            modelBuilder.Entity("PBZN_SSU.MyAirport.EF.Vol", b =>
                 {
                     b.Property<int>("VolId")
                         .ValueGeneratedOnAdd()

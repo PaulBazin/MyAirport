@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PBZN.MyAirport.ef.Migrations
+namespace PBZN_SSU.MyAirport.EF.Migrations
 {
+    /// <summary>
+    /// Migration
+    /// </summary>
     public partial class FK_4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
