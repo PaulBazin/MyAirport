@@ -77,5 +77,14 @@ namespace PBZN_SSU.MyAirport.EF
             CodeIata = codeIata;
             DateCreation = dateCreation;
         }
+        
+        /// <summary>
+        /// Constructeur vide pour Razor
+        /// </summary>
+        public Bagage()
+        {
+
+        }
+        
     }
 }
